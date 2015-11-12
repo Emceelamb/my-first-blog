@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <title>Mark of the Lam</title>
+    </head>
+   <body>
+        <div class="logo">
+        <h1><a href="/"><img src="http://markofthelam.com/images/ml_des_optimize1.gif"></a></h1>
+    </div>
+    <div class="navigation container">
+         <div class="row1">
+            <div class="col-md-7">
+              <div class ="navigation">
+                <h2><a href="">work</a></h2>
+                <h2><a href="">blog</a></h2>
+                <h2><a href="">about</a></h2>
+                <h2><a href="">contact</a></h2>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
