@@ -17,3 +17,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Project(models.Model):
+    projecttitle = models.CharField(max_length=200)
+    projectdate = models.CharField(max_length=200)
+    projectmedium = models.CharField(max_length=200)
+    projecttext = models.TextField()
+    
+    projectimage = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+    
+    def publish(self):
+        
+        self.save()
+
+    def __str__(self):
+        return self.projecttitle

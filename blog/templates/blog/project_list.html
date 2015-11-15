@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for project in projects %}
+        <div class="project">
+            <div class = "project-image">
+            {{ project.projectimage }}
+        </div>
+            <div class="project-title">
+            <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.projecttitle }}</a></h1>, {{ project.projectdate}}</div>
+            <div class="project-medium">
+                <p>{{ project.projectmedium| safe }}</p>
+            </div>
+            <div class="project-text">
+                <p>{{ project.projecttext| safe }}</p>
+            </div>        
+        </div>
+    {% endfor %}
+{% endblock %}
+
