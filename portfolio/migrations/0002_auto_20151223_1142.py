@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('portfolio', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Choice',
+            fields=[
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('choice_text', models.CharField(max_length=200)),
+                ('votes', models.IntegerField(default=0)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Question',
+            fields=[
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('question_text', models.CharField(max_length=200)),
+                ('pub_date', models.DateTimeField(verbose_name='date published')),
+            ],
+        ),
+        migrations.RemoveField(
+            model_name='project',
+            name='media',
+        ),
+        migrations.DeleteModel(
+            name='Project_name',
+        ),
+        migrations.DeleteModel(
+            name='Medium',
+        ),
+        migrations.DeleteModel(
+            name='Project',
+        ),
+        migrations.AddField(
+            model_name='choice',
+            name='question',
+            field=models.ForeignKey(to='portfolio.Question'),
+        ),
+    ]
