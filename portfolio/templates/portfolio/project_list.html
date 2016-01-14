@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <title>Mark of the Lam</title>
+    </head>
+   <body>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">a</span></a>
+        <div class="logo">
+        <h1><a href="/"><img src="http://markofthelam.com/images/ml_des_optimize1.gif"></a></h1>
+    </div>
+    <div class="navigation container">
+         <div class="row1">
+            <div class="col-md-7">
+              <div class ="navigation">
+                <h1><a href="http://127.0.0.1:8000/portfolio/">work</a></h2>
+                <h1><a href="">blog</a></h2>
+                <h1><a href="">about</a></h2>
+                <h1><a href="">contact</a></h2>
+    </div>
+            </div>
+        </div>
+    </div>
+
+
+{% if project_list %}
+    <ul>
+    {% for project in project_list %}
+        <li><h1><a href="{% url 'portfolio:projects' project.id %}">{{ project.projecttitle }}</a></h1></li>
+        <li><h1><a href="{% url 'portfolio:projects' project.id %}">{{ project.projectdate }}</a></h1></li>
+        <li><h1><a href="{% url 'portfolio:projects' project.id %}">{{ project.projectmedium }}</a></h1></li>
+        <li><h1><a href="{% url 'portfolio:projects' project.id %}">{{ project.projecttext }}</a></h1></li>
+        <li><h1><a href="{% url 'portfolio:projects' project.id %}">{{ project.projectimage }}</a></h1></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+ 
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+ 
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+ 
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</html>

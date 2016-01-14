@@ -8,7 +8,8 @@ from django.utils import timezone
 
 
 from .models import Question
-
+from .models import Project
+'''
 
 class IndexView(generic.ListView):
     template_name = 'portfolio/index.html'
@@ -26,6 +27,39 @@ class IndexView(generic.ListView):
 	    return Question.objects.filter( 
 	    	pub_date__lte=timezone.now()
 	    ).order_by('-pub_date')
+'''
+
+class DetailView(generic.DetailView):
+    ...
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Question.objects.filter(pub_date__lte=timezone.now())
+
+class ProjectView(generic.DetailView):
+    ...
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return Project.objects.filter(pub_date__lte=timezone.now())
+
+class IndexView(generic.ListView):
+    template_name = 'portfolio/index.html'
+    context_object_name = 'project_list'
+    
+
+    def get_queryset(self):
+        
+
+        """
+        Return the last five published questions (not including those set to be
+        published in the future).
+        """
+        return Project.objects.filter( 
+            pub_date__lte=timezone.now()
+        ).order_by('-pub_date')
 
 
 class DetailView(generic.DetailView):
@@ -35,6 +69,7 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
+
 
 
 class ResultsView(generic.DetailView):
@@ -77,3 +112,7 @@ def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'portfolio/results.html', {'question': question})
 '''
+
+def project_list(request):
+    project_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'portfolio/project_list.html', {'project': projects})

@@ -18,11 +18,8 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
-
+'''
     
-"""
-from django.db import models
-
 class Project_name(models.Model):
     name = models.CharField(max_length=250)
     url = models.URLField(blank=True)
@@ -49,30 +46,28 @@ class Medium(models.Model):
     
     def __repr__(self):
         return self.name
-    
+'''    
 class Project(models.Model):
-    name = models.CharField(max_length=250)
-    project_url = models.URLField('Project URL')
-    description = models.TextField(blank=True)
+    projecttitle = models.CharField(max_length=200, null=True)
+    projectdate = models.CharField(max_length=200, null=True)
+    projectmedium = models.CharField(max_length=200, null=True)
+    projecttext = models.TextField(null=True, blank=True)
+    pub_date = models.DateTimeField('date published', null=True, blank=True)
+
     
-    media = models.ManyToManyField(Medium)
-    disciplines = models.CharField(max_length=200)
-    completion_date = models.DateField()
-    in_development = models.BooleanField()
-    is_public = models.BooleanField(default=True)
-    overview_image = models.URLField()
-    detail_image = models.URLField()
-    
-    class Meta:
-        db_table = "projects"
-        ordering = ['-completion_date']
-     
-    class Admin:
-        pass
+    projectimage = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, default='https://pmcdeadline2.files.wordpress.com/2010/08/nicolas_cage.jpg')
+    '''
+    def publish(self):
         
-    def __repr__(self):
-        return self.name
+        self.save()
+
+    def __str__(self):
+        return self.projecttitle
+'''
     
-    def get_absolute_url(self):
-        return "/work/%s/" % self.slug
-"""
+    def __str__(self):
+        return self.projecttitle
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now    
+    
