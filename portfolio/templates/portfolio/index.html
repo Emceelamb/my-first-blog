@@ -1,16 +1,14 @@
 {% load staticfiles %}
-
-
 <html>
     <head>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/portfolio_list.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
         <title>Mark of the Lam</title>
     </head>
    <body>
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">a</span></a>
+        
         <div class="logo">
         <h1><a href="/"><img src="http://markofthelam.com/images/ml_des_optimize1.gif"></a></h1>
     </div>
@@ -27,24 +25,34 @@
         </div>
     </div>
 
-
-
-{% if project_list %}
-    <ul>
-    {% for project in project_list %}
-        <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
-
-                        <div class = "project-image">
-                        <img src=' {{ project.projectimage.url }}'>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            
+            {% if project_list %}
+                
+                {% for project in project_list %}
+                <ul class = "list" style="list-style-type:none">
+                <div class = "portfolio_list">
+                    <div class = "project-title">
+                    <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
                     </div>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
 
+                                    <div class = "project-image">
+                                    <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
+                                </div>
+                            </div>
+                            </ul>
+                {% endfor %}
+                
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
 
- 
+            </div>
+        </div>
+    </div>
+
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
@@ -60,6 +68,3 @@
         {% endif %}
     </span>
 </div>
-</html>
-
-

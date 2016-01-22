@@ -116,3 +116,7 @@ def results(request, question_id):
 def project_list(request):
     project_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'portfolio/project_list.html', {'project': projects})
+
+def projectDetail_list(request):
+    projectDetail_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'portfolio/project_list.html', {'project': projects})    

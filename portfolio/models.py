@@ -55,7 +55,7 @@ class Project(models.Model):
     pub_date = models.DateTimeField('date published', null=True, blank=True)
 
     
-    projectimage = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, default='https://pmcdeadline2.files.wordpress.com/2010/08/nicolas_cage.jpg')
+    projectimage = models.ImageField(upload_to='', height_field=None, width_field=None, max_length=100, default='https://pmcdeadline2.files.wordpress.com/2010/08/nicolas_cage.jpg')
     '''
     def publish(self):
         

@@ -1,0 +1,87 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/portfolio_list.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <title>Mark of the Lam</title>
+    </head>
+   <body>
+        
+        <div class="logo">
+        <h1><a href="/"><img src="http://markofthelam.com/images/ml_des_optimize1.gif"></a></h1>
+    </div>
+    <div class="navigation container">
+         <div class="row1">
+            <div class="col-md-7">
+              <div class ="navigation">
+                <h1><a href="http://127.0.0.1:8000/portfolio/">work</a></h2>
+                <h1><a href="">blog</a></h2>
+                <h1><a href="">about</a></h2>
+                <h1><a href="">contact</a></h2>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+
+            <div class="projectDetail">
+            
+            <div class="projectDetail-title">
+            <h1>{{ project.projecttitle }}</a></h1>, {{ project.projectdate}}</div>
+            <div class = "projectDetail-image">
+             <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
+            </div>
+            <div class="projectDetail-medium">
+                <p>{{ project.projectmedium| safe }}</p>
+            </div>
+            <div class="projectDetail-text">
+                <p>{{ project.projecttext| safe }}</p>
+            </div>        
+        </div>    
+            
+
+
+            {% if projectDetail_list %}
+                
+                {% for project in projectDetail_list %}
+                <ul class = "list" style="list-style-type:none">
+                <div class = "portfolio_list">
+                    <div class = "project-title">
+                    <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
+                    </div>
+
+                                    <div class = "project-image">
+                                    <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
+                                </div>
+                            </div>
+                            </ul>
+                {% endfor %}
+                
+            {% else %}
+                <p>No polls sa available.</p>
+            {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+ 
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+ 
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>        
