@@ -29,25 +29,9 @@
         <div class="row">
             <div class="col-md-8">
             
-            {% if project_list %}
-                
-                {% for project in project_list %}
-                <ul class = "list" style="list-style-type:none">
-                <div class = "portfolio_list">
-                    <div class = "project-title">
-                    <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
-                    </div>
-
-                                    <div class = "project-image">
-                                    <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
-                                </div>
-                            </div>
-                            </ul>
-                {% endfor %}
-                
-            {% else %}
-                <p>No polls are available.</p>
-            {% endif %}
+            {% block projectlist %}
+            {% endblock projectlist %}
+            
 
             </div>
         </div>

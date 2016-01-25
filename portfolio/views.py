@@ -38,7 +38,8 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 class ProjectView(generic.DetailView):
-    ...
+    template_name = 'portfolio/project_detail.html'
+
     def get_queryset(self):
         """
         Excludes any questions that aren't published yet.
@@ -119,4 +120,4 @@ def project_list(request):
 
 def projectDetail_list(request):
     projectDetail_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'portfolio/project_list.html', {'project': projects})    
+    return render(request, 'portfolio/project_detail.html', {'project': projects})    

@@ -45,25 +45,25 @@
         </div>    
             
 
-
+            
             {% if projectDetail_list %}
                 
                 {% for project in projectDetail_list %}
-                <ul class = "list" style="list-style-type:none">
-                <div class = "portfolio_list">
-                    <div class = "project-title">
-                    <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
-                    </div>
+                    <ul class = "list" style="list-style-type:none">
+                    <div class = "portfolio_list">
+                        <div class = "project-title">
+                            <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
+                        </div>
 
-                                    <div class = "project-image">
-                                    <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
-                                </div>
-                            </div>
-                            </ul>
+                        <div class = "project-image">
+                            <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
+                        </div>
+                    </div>
+                    </ul>
                 {% endfor %}
                 
             {% else %}
-                <p>No polls sa available.</p>
+                <p>No pollsfdgf sa available.</p>
             {% endif %}
 
             </div>
