@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
+from django.views.generic.detail import SingleObjectMixin
 
 
 
@@ -40,11 +41,20 @@ class DetailView(generic.DetailView):
 class ProjectView(generic.DetailView):
     template_name = 'portfolio/project_detail.html'
 
+
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectView, self).get_context_data(**kwargs)
+        context['projects'] = Project.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+        return context    
+
     def get_queryset(self):
         """
         Excludes any questions that aren't published yet.
         """
         return Project.objects.filter(pub_date__lte=timezone.now())
+        # projectDetail_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        #return render(request, 'portfolio/project_list.html', {'project': projects})    
 
 class IndexView(generic.ListView):
     template_name = 'portfolio/index.html'
@@ -120,4 +130,5 @@ def project_list(request):
 
 def projectDetail_list(request):
     projectDetail_list = Project.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'portfolio/project_detail.html', {'project': projects})    
+    return render(request, 'portfolio/project_list.html', {'project': projects})    
+
