@@ -9,7 +9,7 @@
             </div>
 
             <div class = "project-image">
-                <img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'>
+                <a href="{% url 'portfolio:project' project.id %}"><img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'></a>
             </div>
         </div>
         </ul>
