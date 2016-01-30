@@ -8,7 +8,7 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls', namespace = "blog")),
     url(r'^portfolio/', include('portfolio.urls', namespace = "portfolio")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', ('home.views.homeImage')),

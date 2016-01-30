@@ -1,10 +1,66 @@
 h1 a {
     color: #000000;
     font-family: 'Nunito', sans-serif;
+    text-decoration: none;
 }
+
+h1 a:hover {
+    color: #000000;
+    font-family: 'Nunito', sans-serif;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    text-decoration: none;
+}
+
+h1 a:visited {
+    color: #000000;
+    font-family: 'Nunito', sans-serif;
+    
+    text-decoration: none;
+}
+
+h1 a:active {
+    color: orange;
+    font-family: 'Nunito', sans-serif;
+    
+    text-decoration: none;
+}
+
 body {
     padding-left: ;
 }
+
+h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+h2 a {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    
+}
+
+h2 a:hover {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+h2 a:active {
+    color: orange;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+ul {
+  display: inline-flex
+}
+
 
 .logo {
     
@@ -28,14 +84,6 @@ body {
     
 }
 
-h2, h3, h4 {
-    font-family: 'Roboto', sans-serif;
-}
-
-
-ul {
-  display: inline-flex
-}
 
 
 .project-title {
@@ -57,3 +105,10 @@ ul {
 .projectDetail-image img {
     width: 100%;
 }    
+
+.portfolio_list:hover {
+
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
+}
+
