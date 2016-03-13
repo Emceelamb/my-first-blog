@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+  function draw() {
+  var canvas = document.getElementById('canvas');
+
+<style type="text/css">
+    body {
+        background-color: #ababab;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        max-height: 200px;
+        text-align: center;
+        color: #fff;
+        transition: background-color 3s ease; /* NO ONE supports yet :( (@11/2012)*/
+        -webkit-transition: background-color 3s ease;
+        -moz-transition: background-color 3s;
+        -o-transition: background-color 3s;
+        -ms-transition: background-color 3s;/* IE10+ only */
+        
+
+    canvas {
+        color: #fff
+    }
+
+    h1 
+} 
+
+.p {
+        font-family: "Monospace";
+        font-size: 144px;
+        #fff
+        }
+    }
+</style>
+
+
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  
+  <script>
+    function randomColor(){
+        r = Math.floor(Math.random() * (256));
+        g = Math.floor(Math.random() * (256));
+        b = Math.floor(Math.random() * (256));
+        jQuery('body').css('color','rgb('+r+','+g+','+b+')');
+        jQuery('#ms-tile-color').attr('content','rgb('+r+','+g+','+b+')');
+    }
+    
+    jQuery(document).ready(function(){
+        randomColor();
+        var t = setInterval(randomColor,1000);
+    });
+</script>
+ </head>
+ <body onload="draw();">
+
+    <p>WOW</p>
+ </body>
+</html>

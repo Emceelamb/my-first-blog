@@ -1,38 +1,74 @@
+
+
+
 {% load staticfiles %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+     <!--   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-        <title>Mark of the Lam</title>
-    </head>
-   <body>
-      
-        <div class="logo">
-        <h1><a href="/"><img src="http://markofthelam.com/images/ml_des_optimize1.gif"></a></h1>
-    </div>
-    <div class="navigation container">
-         <div class="row1">
-            <div class="col-md-7">
-              <div class ="navigation">
-                <h1><a href="/portfolio/">work</a></h2>
-                <h1><a href="/blog">blog</a></h2>
-                <h1><a href="/about">about</a></h2>
-                <h1><a href="/contact">contact</a></h2>
-    </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+        <title>Mark of the Lam</title>
+
+          <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {height: 1500px}
+        
+        /* Set gray background color and 100% height */
+        .sidenav {
+          
+          height: 100%;
+        }
+        
+        /* Set black background color, white text and some padding */
+       
+        
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+          .sidenav {
+            height: auto;
+            padding: 15px;
+          }
+          .row.content {height: auto;} 
+        }
+      </style>
+    </head>
+<body>
+
+<div class="container">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <div class="logo">
+            <h1><a href="/"><img src="http://markofthelam.com/static/ml_des_optimize1.gif"></a></h1>
             </div>
-        </div>
+        
+                <div class ="navigation">
+                <h1><a href="/portfolio/">work</a></h1>
+                <h1><a href="/blog">blog</a></h1>
+                <h1><a href="/about">about</a></h1>
+                <h1><a href="/contact">contact</a></h1>
+                </div>
+            </div>
+ 
+    <div class="contentBox">
+    <div class="col-sm-9">
+          {% block content %}
+    
+            {% endblock %}
+      
+      </div>
     </div>
+</div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
+

@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<html>
+    <head>
+     <!--   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+          <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style
+        <title>Mark of the Lam</title>
+    </head>
+   <body>
+        
+        <div class="logo">
+        <h1><a href="/"><img src="http://markofthelam.com/static/ml_des_optimize1.gif"></a></h1>
+    </div>
+    <div class="mainDiv">
+    <div class="navigation container">
+         <div class="row1">
+            <div class="col-md-4">
+              <div class ="navigation">
+                <h1><a href="/portfolio/">work</a></h2>
+                <h1><a href="/blog">blog</a></h2>
+                <h1><a href="/about">about</a></h2>
+                <h1><a href="/contact">contact</a></h2>
+    </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            <div class="homeImage">
+                <img width='100%' src="http://markofthelam.com/static/tumblr.jpg">
+
+            </div>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

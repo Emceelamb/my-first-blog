@@ -57,6 +57,47 @@ h2 a:active {
 
 }
 
+h2 a:visited {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+
+h3 a {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    
+}
+
+h3 a:hover {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+h3 a:active {
+    color: orange;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+h3 a:visited {
+    color: #000000;
+    font-family: 'robot', sans-serif;
+    text-decoration: none;
+
+
+}
+
+
+
 ul {
   display: inline-flex
 }
@@ -81,13 +122,18 @@ ul {
 }
 
 .content {
+    float: left;
     
+}
+
+.row1{
+    float:left;
 }
 
 
 
 .project-title {
-    text-align: center;
+    text-align: left;
 }
 
 .project--image {
@@ -112,3 +158,6 @@ ul {
     filter: alpha(opacity=40); 
 }
 
+.contentBox {
+    margin-top: 190px;
+}

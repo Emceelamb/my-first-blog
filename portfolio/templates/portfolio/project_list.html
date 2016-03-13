@@ -5,11 +5,11 @@
         <ul class = "list" style="list-style-type:none">
         <div class = "portfolio_list">
             <div class = "project-title">
-                <li><h2><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
+                <li><h3><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h3></li>
             </div>
 
             <div class = "project-image">
-                <a href="{% url 'portfolio:project' project.id %}"><img src=' http://127.0.0.1:8000/portfolio{{ project.projectimage.url }}'></a>
+                <a href="{% url 'portfolio:project' project.id %}"><img src=' http://markofthelam.com{{ project.projectimage.url }}'></a>
             </div>
         </div>
         </ul>

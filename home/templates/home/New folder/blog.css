@@ -84,6 +84,9 @@ ul {
     
 }
 
+.contentBox {
+    margin-top: 200px;
+}
 
 
 .date {
@@ -126,5 +129,5 @@ ul {
 }
 
 .contentBox {
-    margin-top: 200px;
+    margin-top:200px;
 }

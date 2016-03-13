@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/portfolio_list.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <title>Mark of the Lam</title>
+    </head>
+   <body>
+        
+        <div class="logo">
+        <h1><a href="/"><img src="http://markofthelam.com/static/ml_des_optimize1.gif"></a></h1>
+    </div>
+    <div class="navigation container">
+         <div class="row1">
+            <div class="col-md-7">
+              <div class ="navigation">
+                <h1><a href="/portfolio/">work</a></h2>
+                <h1><a href="{% url 'blog:post_list' %}">blog</a></h2>
+                <h1><a href="/about">about</a></h2>
+                <h1><a href="/contact/">contact</a></h2>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block projectDetail %}
+            {% endblock projectDetail %}
+            <div class="projlis">
+    {% block projectlist %}            
+    {% for project in project_list %}
+        <ul class = "list" style="list-style-type:none">
+        <div class = "portfolio_list">
+            <div class = "project-title">
+                <li><h1><a href="{% url 'portfolio:project' project.id %}">{{ project.projecttitle }}</a></h1></li>
+            </div>
+
+            <div class = "project-image">
+                <img src=' emceelamb.pythonanywhere.com/{{ project.projectimage.url }}'>
+            </div>
+        </div>
+        </ul>
+    {% endfor %}
+    {% endblock %}               
+            </div>
+            
+
+            </div>
+        </div>
+    </div>

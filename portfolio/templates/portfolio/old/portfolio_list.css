@@ -85,46 +85,39 @@ ul {
 }
 
 
-
-.date {
-    float: right;
-    color: #828282;
-    padding-right: 15%;
+.project-title {
+    text-align: left;
 }
 
-.save {
-    float: right;
+.project--image {
+  width: 33%
 }
 
-.post-form textarea, .post-form input {
+.project-image img {
+     
     width: 100%;
+    max-width:200px; /* corresponds to max height of 450px */
+    margin: 0 auto;
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+
+.projectDetail-image img {
+    width: 100%;
+}    
+
+.portfolio_list {
+	opacity: 1;
+    transition: opacity 25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out
 }
 
-.post {
-    margin-bottom: 70px;
-}
+.portfolio_list:hover {
 
-.post h2 a, .post h2 a:visited {
-    color: #000000;
-}
-.post-text {
-    width: 90%;
-}
-
-.contact a:hover {
-    color: #696969;
-}
-.contact a {
-    color: #333333;
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
 }
 
 .contentBox {
-    margin-top: 200px;
+    margin-top:200px;
 }
